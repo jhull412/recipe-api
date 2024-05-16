@@ -1,0 +1,63 @@
+[
+  {
+    "id": 1,
+    "name": "Chicken Parm",
+    "image": "images/1.jpg",
+    "stats": { "cookTime": 30, "prepTime": 15, "serves": 4 },
+    "ingredients": [
+      {
+        "name": "Boneless Skinless Chicken Breast halves",
+        "amount": "4"
+      },
+      { "name": "Salt & Pepper" },
+      { "name": "Italian Breadcrumbs", "amount": "1/2", "unit": "cup" },
+      { "name": "Fresh-grated Parmesan Cheese", "amount": "1", "unit": "cup" },
+      { "name": "Egg, beaten", "amount": "1" },
+      { "name": "Butter", "amount": "4", "unit": "tbsp" },
+      { "name": "Mozzarella Cheese", "amount": "4", "unit": "slices" },
+      { "name": "Marinara Sauce", "amount": "2", "unit": "cups" },
+      { "name": "Spaghetti (cooked)", "amount": "1", "unit": "lb" },
+      {
+        "name": " chopped parsley, for garnish (optional)",
+        "amount": "2",
+        "unit": "tbsp"
+      }
+    ],
+    "directions": [
+      "Pound chicken to flatten.",
+      "Salt and pepper to taste.",
+      "Dip chicken in egg; then in bread crumbs.",
+      "Fry in butter in hot skillet, turning and browning for 10 minutes or until chicken is done.",
+      "Remove from skillet.",
+      "To skillet add spaghetti sauce.",
+      "Heat thoroughly.",
+      "Add chicken.",
+      "Place slices of mozzarella on top of chicken.",
+      "Sprinkle with parmesan.",
+      "Cover and cook until cheese is melted.",
+      "Serve with a side of spaghetti. Optional, garnish with chopped parsley and more parmesan cheese."
+    ]
+  },
+  {
+    "id": 2,
+    "name": "Grilled Cheese",
+    "image": "images/2.jpg",
+    "stats": { "cookTime": 5, "prepTime": 5, "serves": 1 },
+    "ingredients": [
+      { "name": "Bread", "amount": "2", "unit": "slices" },
+      { "name": "Cheese", "amount": "2", "unit": "slices" },
+      { "name": "Butter", "amount": "2", "unit": "tbsp" }
+    ],
+    "directions": [
+      "Butter 1 side of each slice of bread.",
+      "Place bread slices butter-side down in skillet over medium heat.",
+      "Place a slice of cheese on each slice of bread.",
+      "Cook for 5 minutes or until bread is golden-brown and cheese is melted.",
+      "Close sandwich and remove from heat.",
+      "Wait 2 minutes, then slice."
+    ]
+  },
+  { "id": 3, "name": "Eggs Benedict" },
+  { "id": 4, "name": "7 Bean Salad" },
+  { "id": 5, "name": "Super Long Recipe Name with Words and stuff" }
+]

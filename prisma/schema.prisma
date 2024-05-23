@@ -1,0 +1,47 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model Recipe {
+  id          Int          @id @unique(map: "id_UNIQUE") @default(autoincrement())
+  name        String?      @db.VarChar(128)
+  directions  Direction[]
+  ingredients Ingredient[]
+  stats       Stat?
+}
+
+model Ingredient {
+  id       Int     @id @unique(map: "id_UNIQUE")
+  recipeId Int
+  name     String? @db.VarChar(128)
+  amount   String? @db.VarChar(16)
+  unit     String? @db.VarChar(64)
+  recipe   Recipe  @relation(fields: [recipeId], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "ingredients_ibfk_1")
+
+  @@index([recipeId], map: "recipeId")
+}
+
+model Stat {
+  id       Int    @id @unique(map: "id_UNIQUE")
+  recipeId Int    @unique(map: "recipeId_UNIQUE")
+  cookTime Int?
+  prepTime Int?
+  serves   Int?
+  recipe   Recipe @relation(fields: [recipeId], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "stats_ibfk_1")
+
+  @@index([recipeId], map: "stats_ibfk_1")
+}
+
+model Direction {
+  id       Int     @id @unique(map: "id_UNIQUE")
+  recipeId Int
+  step     String? @db.VarChar(512)
+  recipe   Recipe  @relation(fields: [recipeId], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "directions_ibfk_1")
+
+  @@index([recipeId], map: "recipeId")
+}

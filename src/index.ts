@@ -1,20 +1,18 @@
-import express, { Express, Request, Response } from "express";
+import express, { Express } from "express";
 import dotenv from "dotenv";
+import bodyParser from "body-parser";
 const cors = require("cors");
-import recipes from "./data/recipes.json";
+const routers = require("./routes/index");
 
 dotenv.config();
 
 const app: Express = express();
 app.use(cors());
+app.use(bodyParser.json({ limit: "100mb" }));
+app.use(bodyParser.urlencoded({ limit: "50mb", extended: true }));
+app.use(routers);
+app.use(express.static("public"))
 const port = process.env.PORT || 3000;
-
-app.get("/recipes/:id", (req: Request<{ id: string }>, res: Response) => {
-  const result = recipes.find((r) => {
-    return r.id === Number(req.params.id);
-  });
-  res.json(result);
-});
 
 app.listen(port, () => {
   console.log(`[server]: Server is running at http://localhost:${port}`);

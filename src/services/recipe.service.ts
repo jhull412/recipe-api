@@ -28,10 +28,14 @@ export const getRecipe = async (id: number) => {
 
 export const create = async (recipe: Omit<Recipe, "id">): Promise<Recipe> => {
   const { name } = recipe;
+  const data = {
+    name,
+    stats: { cookTime: 100, prepTime: 100, serves: 5 },
+    directions: [],
+    ingredients: [],
+  };
   return db.recipe.create({
-    data: {
-      name,
-    },
+    data: { ...data },
     select: {
       id: true,
       name: true,

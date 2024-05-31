@@ -16,7 +16,7 @@ model Recipe {
 }
 
 model Ingredient {
-  id       Int     @id @unique(map: "id_UNIQUE")
+  id       Int     @id @unique(map: "id_UNIQUE") @default(autoincrement())
   recipeId Int
   name     String? @db.VarChar(128)
   amount   String? @db.VarChar(16)
@@ -27,7 +27,7 @@ model Ingredient {
 }
 
 model Stat {
-  id       Int    @id @unique(map: "id_UNIQUE")
+  id       Int    @id @unique(map: "id_UNIQUE") @default(autoincrement())
   recipeId Int    @unique(map: "recipeId_UNIQUE")
   cookTime Int?
   prepTime Int?
@@ -38,7 +38,7 @@ model Stat {
 }
 
 model Direction {
-  id       Int     @id @unique(map: "id_UNIQUE")
+  id       Int     @id @unique(map: "id_UNIQUE") @default(autoincrement())
   recipeId Int
   step     String? @db.VarChar(512)
   recipe   Recipe  @relation(fields: [recipeId], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "directions_ibfk_1")

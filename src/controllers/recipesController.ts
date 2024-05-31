@@ -17,7 +17,6 @@ exports.findById = async (req: Request<{ id: string }>, res: Response) => {
 };
 
 exports.create = async (req: Request, res: Response) => {
-  console.log(req.body);
   const result = await create(req.body);
   res.json(result);
 };

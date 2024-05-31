@@ -29,9 +29,9 @@ model Ingredient {
 model Stat {
   id       Int    @id @unique(map: "id_UNIQUE") @default(autoincrement())
   recipeId Int    @unique(map: "recipeId_UNIQUE")
-  cookTime Int?
-  prepTime Int?
-  serves   Int?
+  cookTime String?
+  prepTime String?
+  serves   String?
   recipe   Recipe @relation(fields: [recipeId], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "stats_ibfk_1")
 
   @@index([recipeId], map: "stats_ibfk_1")

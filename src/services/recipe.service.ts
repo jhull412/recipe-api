@@ -1,3 +1,4 @@
+import { CreateRecipeDTO } from "../types/dto";
 import { db } from "../utils/db.server";
 import { Recipe } from "@prisma/client";
 
@@ -26,12 +27,12 @@ export const getRecipe = async (id: number) => {
   });
 };
 
-export const create = async (recipe: Omit<Recipe, "id">): Promise<Recipe> => {
+export const create = async (recipe: CreateRecipeDTO): Promise<Recipe> => {
   return db.recipe.create({
     data: {
       name: recipe.name,
       stats: {
-        create: { cookTime: 100, prepTime: 100, serves: 5 },
+        create: recipe.stats,
       },
     },
     select: {

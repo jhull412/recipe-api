@@ -34,6 +34,12 @@ export const create = async (recipe: CreateRecipeDTO): Promise<Recipe> => {
       stats: {
         create: recipe.stats,
       },
+      ingredients: {
+        create: recipe.ingredients,
+      },
+      directions: {
+        create: recipe.directions,
+      },
     },
     select: {
       id: true,

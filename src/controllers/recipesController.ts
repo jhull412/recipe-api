@@ -1,5 +1,10 @@
 import { Request, Response } from "express";
-import { getRecipes, getRecipe, create, getRecipesList } from "../services/recipe.service";
+import {
+  getRecipes,
+  getRecipe,
+  create,
+  getRecipesList,
+} from "../services/recipe.service";
 
 exports.getRecipes = async (req: Request, res: Response) => {
   const result = await getRecipes();
@@ -19,4 +24,9 @@ exports.findById = async (req: Request<{ id: string }>, res: Response) => {
 exports.create = async (req: Request, res: Response) => {
   const result = await create(req.body);
   res.json(result);
+};
+
+exports.updateImage = async (req: Request<{ id: string }>, res: Response) => {
+  console.log(req.body);
+  res.json(req.body);
 };

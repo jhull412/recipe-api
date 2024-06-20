@@ -27,6 +27,6 @@ exports.create = async (req: Request, res: Response) => {
 };
 
 exports.updateImage = async (req: Request<{ id: string }>, res: Response) => {
-  console.log(req.body);
+  console.log(req.file);
   res.json(req.body);
 };
